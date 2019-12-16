@@ -26,23 +26,13 @@ CLASSIFIERS = ["Development Status :: 3 - Alpha",
                "Topic :: Scientific/Engineering"]
 
 # Description should be a one-liner:
-description = "analysas: a template for small scientific Python projects"
+description = "analysas: a small angle scattering package"
 # Long description will go up on the pypi page
 long_description = """
 
-Shablona
+AnalySAS
 ========
-Shablona is a template project for small scientific Python projects.
 
-It contains software implementations of an analysis of some simple data, but
-more importantly, it contains infrastructure for testing, documentation,
-continuous integration and deployment, which can be easily adapted
-to use in other projects.
-
-To get started using these components in your own software, please go to the
-repository README_.
-
-.. _README: https://github.com/uwescience/analysas/blob/master/README.md
 
 License
 =======
@@ -52,7 +42,7 @@ for usage, and a DISCLAIMER OF ALL WARRANTIES.
 
 All trademarks referenced herein are property of their respective holders.
 
-Copyright (c) 2015--, Ariel Rokem, The University of Washington
+Copyright (c) 2019--, Caitlyn Wolf, Pozzo Research Group
 eScience Institute.
 """
 

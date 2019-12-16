@@ -3,12 +3,9 @@
 Welcome to analysas's documentation!
 ====================================
 
-`Shablona` is a template for a small scientific Python project. 
+`AnalySAS` 
 
-To see how to use it, please refer to the `README file 
-<https://github.com/uwescience/analysas/blob/master/README.md>`_ in the Github repository.
-
-This is an example of documentation of the software, using sphinx_. 
+This is an example of documentation of the software, using sphinx_.
 
 .. _sphinx: http://sphinx-doc.org/
 

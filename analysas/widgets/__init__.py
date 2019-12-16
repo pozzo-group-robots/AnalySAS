@@ -1,6 +1,6 @@
 """
 
-The SasWidgets sub-package includes ipywidgets for visualizating and manipulating scattering data stored in the SasData class.
+The AnalySAS widgets module includes ipywidgets for visualizating and manipulating scattering data stored in the SasData class.
 
 Caitlyn Wolf
 Pozzo Research Group

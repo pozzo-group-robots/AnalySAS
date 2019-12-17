@@ -1,12 +1,12 @@
 from .SasData import *
 
-def subtract_sas(A, B, label = None, description = '', scale_A = 1, scale_B = 1, threshold = 0.05):
+def sum_sas(A, B, label = None, description = '', scale_A = 1, scale_B = 1, threshold = 0.05):
 
     """
-    Subtracts the intensity of two scattering profiles:
-    scale_A * I(Q)_A - scale_B * I(Q)_B = I(Q)_C
+    Sums the intensity of two scattering profiles:
+    scale_A * I(Q)_A + scale_B * I(Q)_B = I(Q)_C
 
-    It is recommended that data to be subtracted follows identical reduction protocols.
+    It is recommended that data to be summed follows identical reduction protocols.
     This function does not do a fit of the 'B' dataset, and so it is only able to subtract
     the scattering intensities if the scattering vector 'q' is within a threshold value.
 
@@ -29,7 +29,7 @@ def subtract_sas(A, B, label = None, description = '', scale_A = 1, scale_B = 1,
     description : string
         The extended description that will get applied to the returned SasData object C.
         Regardless of whether this is specified, default behavior will be to append:
-        "A subtraction of [scale_A]*[A.label] - [scale_B]*[B.label] was performed."
+        "A summation of [scale_A]*[A.label] + [scale_B]*[B.label] was performed."
 
     scale_A : float
         Default value is 1.
@@ -38,8 +38,6 @@ def subtract_sas(A, B, label = None, description = '', scale_A = 1, scale_B = 1,
     scale_B : float
         Default value is 1.
         The scale factor can be used to adjust the contribution of scattering from B.
-        This is especially important when subtracting solvent contribution from a mixture,
-        and the solute concentration is high enough where volume displacement applies.
 
     threshold : float
         Data is subtracted only for q values from two datasets are within the threshold.
@@ -48,7 +46,7 @@ def subtract_sas(A, B, label = None, description = '', scale_A = 1, scale_B = 1,
     --------
 
     C : SasData object
-        Subtracted scattering data.
+        Summed scattering data.
 
     """
 
@@ -69,7 +67,7 @@ def subtract_sas(A, B, label = None, description = '', scale_A = 1, scale_B = 1,
         diffs = np.absolute(B.q - q)
         sub_ind.append(np.argmin(diffs))
 
-    Iq_C = scale_A * A.Iq - scale_B * B.Iq[sub_ind]
+    Iq_C = scale_A * A.Iq + scale_B * B.Iq[sub_ind]
     dIq_C = np.sqrt((scale_A * A.dIq)**2 + (scale_B * B.dIq[sub_ind])**2)
 
     q_diffs = np.absolute(A.q - B.q[sub_ind])/A.q
@@ -99,7 +97,7 @@ def subtract_sas(A, B, label = None, description = '', scale_A = 1, scale_B = 1,
     assert (type(description) is str), "The provided description must be a string."
     if (len(description) > 0 and description[-1] != ' '):
         description += ' '
-    description += ("NOTE: A subtraction of '" + str(scale_B) + " * '" + A.label +"' - " + str(scale_B) + " * '" + B.label + "' was performed.")
+    description += ("NOTE: A subtraction of '" + str(scale_B) + " * '" + A.label +"' + " + str(scale_B) + " * '" + B.label + "' was performed.")
 
     C = SasData(label, description = description)
     C.add_data(q_C, Iq_C, dIq = dIq_C, dq = dq_C)

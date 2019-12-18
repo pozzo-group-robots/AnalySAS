@@ -8,11 +8,11 @@
 
 The analysas package relies on the SasData class for handling scattering data. At the root level, one will find the basic functionalities of the package, e.g. arithmetic functions. Additional subpackages are described below.
 
-### analysas.widgets
+#### analysas.widgets
 
 Includes pre-built interactive ipywidgets to visualize and/or perform data transformations, e.g. removing the incoherent background or trimming data points.
 
-### analysas.models
+#### analysas.models
 
 Includes various models as well as methods to combine custom models for analyzing small-angle scattering data.
 

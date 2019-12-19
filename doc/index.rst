@@ -3,7 +3,7 @@
 Welcome to analysas's documentation!
 ====================================
 
-`AnalySAS` 
+`AnalySAS`
 
 This is an example of documentation of the software, using sphinx_.
 
@@ -12,9 +12,11 @@ This is an example of documentation of the software, using sphinx_.
 
 Contents:
 
+Modules
+=========
+
+.. automodule:: analysas.SasData
+   :members:
+
 .. toctree::
    :maxdepth: 2
-
-   theory
-   auto_examples/index
-   api

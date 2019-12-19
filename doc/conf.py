@@ -15,47 +15,39 @@
 
 import sys
 import os
+sys.path.insert(0, os.path.abspath('..'))
 
 # General information about the project.
 project = 'analysas'
-copyright = '2019, Caitlyn Wolf'
+copyright = '2019 Caitlyn Wolf, Pozzo Research Group'
 
-currentdir = os.path.abspath(os.path.dirname(__file__))
-ver_file = os.path.join(currentdir, '..', project, 'version.py')
-with open(ver_file) as f:
-    exec(f.read())
-source_version = __version__
-
-currentdir = os.path.abspath(os.path.dirname(__file__))
-sys.path.append(os.path.join(currentdir, 'tools'))
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-sys.path.insert(0, os.path.abspath('../'))
+#currentdir = os.path.abspath(os.path.dirname(__file__))
+#ver_file = os.path.join(currentdir, '..', project, 'version.py')
+# with open(ver_file) as f:
+#     exec(f.read())
+# source_version = __version__
+#
+# currentdir = os.path.abspath(os.path.dirname(__file__))
+# sys.path.append(os.path.join(currentdir, 'tools'))
+#
+# # If extensions (or modules to document with autodoc) are in another directory,
+# # add these directories to sys.path here. If the directory is relative to the
+# # documentation root, use os.path.abspath to make it absolute, like shown here.
+# sys.path.insert(0, os.path.abspath('../'))
 
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-needs_sphinx = '1.0'  # numpydoc requires sphinc >= 1.0
+needs_sphinx = '2.0'  # numpydoc requires sphinc >= 1.0
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-sys.path.append(os.path.abspath('sphinxext'))
+#sys.path.append(os.path.abspath('sphinxext'))
 
 extensions = ['sphinx.ext.autodoc',
-              'sphinx.ext.doctest',
-              'sphinx.ext.intersphinx',
-              'sphinx.ext.todo',
               'sphinx.ext.coverage',
-              'sphinx.ext.ifconfig',
-              'sphinx.ext.autosummary',
-              'sphinx.ext.mathjax',
-              'math_dollar',  # has to go before numpydoc
-              'numpydoc',
-              'github',
-              'sphinx_gallery.gen_gallery']
+              'sphinx.ext.napoleon']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

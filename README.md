@@ -1,6 +1,6 @@
 # AnalySAS
 
-[![Build Status](https://travis-ci.com/pozzo-reseach-group/AnalySAS.svg?branch=master)](https://travis-ci.com/pozzo-research-group/AnalySAS)
+[![Build Status](https://travis-ci.com/pozzo-group-robots/AnalySAS.svg?branch=master)](https://travis-ci.com/pozzo-group-robots/AnalySAS)
 
 `analysas` is a Python package enabling common processing, analysis and modeling methods for small-angle scattering data. Some features include batch-removal of the incoherent background, efficient Porod analysis, and basic arithmetic transformations.
 

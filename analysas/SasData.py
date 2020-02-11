@@ -334,7 +334,11 @@ class SasData:
 
         """
 
-        return np.unique(self.__config_tags).tolist()
+        config_return = [x for x in self.__config_tags.tolist() if type(x) is not None]
+        config_return = set(config_return) # get unique values
+        config_return = list(config_return)
+        return config_return
+
 
     def get_config_data(self, configs):
 
@@ -527,10 +531,17 @@ class SasData:
         if type(configs) is str:
             configs = [configs]
 
-        check_configs = self.get_config_list()
-        for config in configs:
-            assert (type(config) is str), "All configurations must be in string format."
-            assert (config in check_configs), "Configuration '" + config + "' is not an available configuration."
+        if len(configs) == 0:
+            configs = self.get_config_list()
+        else:
+            check_configs = self.get_config_list()
+            if len(check_configs) == 0:
+                print ("There are no configurations associated with the data for: " + self.label)
+                raise
+            else:
+                for config in configs:
+                    assert (type(config) is str), "All configurations must be in string format."
+                    assert (config in check_configs), "Configuration '" + config + "' is not an available configuration."
 
         try:
             threshold = float(threshold)
